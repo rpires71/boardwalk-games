@@ -5,14 +5,13 @@
 :root {
     --primary-font: "Inter", sans-serif;
     --secondary-font: "Macondo", cursive;
-    --primary-color: #3a2620; /* dark brown */
-    --secondary-color: #aa9581; /* light brown */
-    --highlight-color: #416a8e; /* blue */
-    --highlight-color-light: #7a9fc2; /* light blue */
+    --primary-color: #3a2620;           /* dark brown */
+    --secondary-color: #aa9581;         /* light brown */
+    --highlight-color: #416a8e;         /* blue */
+    --highlight-color-light: #7a9fc2;   /* light blue */
 }
 
 /* Global styles */
-
 body {
     font-family: var(--primary-font);
 }
@@ -22,7 +21,15 @@ h2,
 h3 {
     font-family: var(--secondary-font);
     color: var(--primary-color);
+}
+
+h1,
+h2 {
     text-transform: uppercase;
+}
+
+h2 {
+    margin-bottom: 2rem;
 }
 
 .sub-heading-color {
@@ -35,7 +42,6 @@ h3 {
 }
 
 /* Navbar */
-
 #navbar {
     background-color: var(--primary-color);
 }
@@ -45,14 +51,25 @@ h3 {
 }
 
 /* Header */
-
 #header .lead {
     font-family: var(--secondary-font);
 }
 
-/* grid visualisation CSS for testing */
+/* Services */
+#services .card-footer {
+    font-weight: bold;
+    color: var(--highlight-color);
+    background-color: transparent;
+}
 
-/* .container,
+/* Optional: space between cards if needed */
+#services .card {
+    margin-bottom: 1.5rem;
+}
+
+/* Grid visualisation (optional for debugging) */
+/*
+.container,
 .row {
     border: 2px solid black;
 }
@@ -60,4 +77,32 @@ h3 {
 .col-12 {
     border: 2px solid white;
     background-color: lightgray;
-} */
+}
+*/
+
+/* Media queries — REMOVED conflicting min-height overrides */
+/* Bootstrap handles responsive grid already. Flexbox aligns card heights. */
+/* Fix for inconsistent image rendering in Edge and Safari */
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
+}
+
+/* Ensure cards grow to same height in all browsers */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Allow body to grow evenly */
+.card-body {
+    flex-grow: 1;
+}
+
+/* Optional spacing */
+#services .card-footer {
+    background-color: transparent;
+    font-weight: bold;
+    color: var(--highlight-color);
+}
